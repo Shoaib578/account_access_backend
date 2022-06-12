@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin-Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for  message in messages %}
+        <div class="alert alert-primary alert-dismissible fade show">
+          {{ message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+    <a href="{{ url_for('admin.Add') }}" class="btn btn-primary float-right mr-5 mt-5" class="float:right;margin-right:20px;margin-top:20px;">Add</a>
+    <a href="{{ url_for('admin.Logout') }}" class="btn btn-danger float-right mr-5 mt-5" class="float:right;margin-right:20px;margin-top:20px;">Logout</a>
+
+    <br>
+    <br>
+    <center>
+        {% for user in users %}
+        <div class="jumbotron" style="width:50%;margin-top:20px">
+            <h3 style="float:left">{{ user.name }}</h3>
+        
+            <a href="{{ url_for('admin.EditUser',id=user.id) }}" class="float-right btn btn-primary" class="margin-right:20">Edit</a>
+        
+            </div>
+        {% endfor %}
+            
+    </center>
+ 
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+</body>
+</html>

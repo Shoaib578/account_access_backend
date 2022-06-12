@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for  message in messages %}
+        <div class="alert alert-primary alert-dismissible fade show">
+          {{ message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+    <a href="{{ url_for('main.Logout') }}" class="btn btn-danger btn-xs float-right mr-4"> Logout</a>
+    <center>
+        <div class="jumbotron " style="border-radius:10px;width: 60%;margin-top:50px">
+           
+            <h2  >Name : {{  current_user.name}}</h2>
+            <h2  >Email : {{  current_user.email}}</h2>
+            <h2  >Code : {{  current_user.code}}</h2>
+            <h2  >Account : {{  current_user.account}}</h2>
+            <h2  >Routing : {{  current_user.routing}}</h2>
+
+            <h2  >Telephone : {{  current_user.phone_no}}</h2>
+            <h2  >Address : {{  current_user.address}}</h2>
+            <h2  >Product Name : {{  current_user.product_name}}</h2>
+           
+           
+
+
+        </div>
+    </center>
+   
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+</body>
+</html>
